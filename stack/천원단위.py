@@ -9,4 +9,4 @@ for i in range(int(unit)-1, -1, -1):
     nums.append(',')
 print(''.join(nums))
 
-print('https://sooleeandtomas.tistory.com/76')
+# 풀이정리 : https://sooleeandtomas.tistory.com/76

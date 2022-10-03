@@ -15,3 +15,5 @@ def solution(arr):
       answer = maxMulti
       break
   return answer
+
+# 풀이정리 : https://sooleeandtomas.tistory.com/77

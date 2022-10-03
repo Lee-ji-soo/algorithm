@@ -24,4 +24,4 @@ if flag == 0:
   for i in answer:
     print(i)
 
-print('https://sooleeandtomas.tistory.com/74')
+# 풀이정리 : https://sooleeandtomas.tistory.com/74
