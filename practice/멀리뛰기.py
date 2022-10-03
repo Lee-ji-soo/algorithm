@@ -14,4 +14,4 @@ def solution(n):
   
 print(solution(5))
 
-print('https://sooleeandtomas.tistory.com/75')
+# 풀이정리 : https://sooleeandtomas.tistory.com/75
