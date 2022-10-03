@@ -13,3 +13,5 @@ def solution(n):
   return answer
   
 print(solution(5))
+
+print('https://sooleeandtomas.tistory.com/75')
