@@ -23,5 +23,5 @@ for i in range(N):
         # print(stack)
         print(stack.pop(), end="")
       print(" ", end="")
-      
-#https://sooleeandtomas.tistory.com/82
+
+#풀이과정: https://sooleeandtomas.tistory.com/82
