@@ -30,4 +30,5 @@ def solution(orders, course):
   return sorted(answer)
 
 print(solution(["XYZ", "XWY", "WXA"], [2,3,4]))
-#https://sooleeandtomas.tistory.com/91
+
+# 문제 풀이: https://sooleeandtomas.tistory.com/91
