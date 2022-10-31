@@ -31,3 +31,6 @@ def bfs(graph, start, visited):
 
 visited = [False] * 9 
 print(bfs(graph, 1, visited))
+
+
+#설명 https://sooleeandtomas.tistory.com/93
