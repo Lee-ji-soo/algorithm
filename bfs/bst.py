@@ -45,9 +45,11 @@ class BinarySearchTree:
             return add_node(self.root, key, value)
 
     def remove(self, key) -> bool:
-        node = self.root
+        node = self.root  ##
         parent = None
         is_left_child = True
+
+        # 삭제할 노드를 찾기
         while True:
             if node is None:
                 return False
@@ -61,12 +63,14 @@ class BinarySearchTree:
                 else:
                     node = node.right
                     is_left_child = False
+
+        # 키를 찾은 후 remove를 헤주기. (자식 노드가 하나인 경우)
         if node.left is None:
             if node is self.root:
                 self.root = node.right
-            elif is_left_child:
+            elif is_left_child:  # parent left node가 있는지 체크한 내용
                 parent.left = node.right
-            else:
+            elif not is_left_child:
                 parent.right = node.right
         elif node.right is None:
             if node is self.root:
@@ -75,5 +79,23 @@ class BinarySearchTree:
                 parent.left = node.left
             else:
                 parent.right = node.left
+        # 자식 노드가 2개인 경우
+        else:
+            parent = node
+            node_max_left = node.left
+            is_left_child = True
+
+            while node_max_left.right is not None:
+                parent = node_max_left
+                node_max_left = node_max_left.right
+                is_left_child = False
+            node.key = node_max_left.key
+            node.value = node_max_left.value
+
+            if is_left_child:
+                parent.left = node_max_left.left
+            else:
+                parent.right = node_max_left.left
+        return True
 
     # def dump(self) -> None:
