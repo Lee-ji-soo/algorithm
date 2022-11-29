@@ -98,4 +98,12 @@ class BinarySearchTree:
                 parent.right = node_max_left.left
         return True
 
-    # def dump(self) -> None:
+    def dump(self) -> None:
+        def print_subtree(node):
+            if node is not None:
+                print(f"{node.key} {node.value}")
+                print_subtree(node.left)
+                print_subtree(node.right)
+
+        root = self.root
+        print_subtree(root)
