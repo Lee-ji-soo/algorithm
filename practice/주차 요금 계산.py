@@ -1,36 +1,44 @@
 from collections import defaultdict
 from math import ceil
 
+
 def getTime(time):
-  h, m = time.split(":")
-  return int(h) * 60 + int(m)
+    h, m = time.split(":")
+    return int(h) * 60 + int(m)
+
 
 def calcFee(time, baseTime, baseFee, unitTime, unitFee):
-  extraTime = max(0, time - baseTime)
-  extraFee = ceil(extraTime/ unitTime) * unitFee
-  return baseFee + extraFee
-  
+    extraTime = max(0, time - baseTime)
+    extraFee = baseFee + ceil(extraTime / unitTime) * unitFee
+    return extraFee
+
+
 def solution(fees, records):
-  answer = [] 
-  parkRecord = defaultdict(int)
-  parkingLot = dict()
-  baseTime, baseFee, unitTime, unitFee = fees
+    answer = []
 
-  for record in records:
-    time, carNumber, type = record.split(' ')
-    time = getTime(time)
-    if type == "IN":
-      parkingLot[carNumber] = time
-    else:
-      parkRecord[carNumber] += (time - parkingLot[carNumber])
-      del parkingLot[carNumber]
+    baseTime, baseFee, unitTime, unitFee = fees
 
-  for carNumber in parkingLot:
-    parkRecord[carNumber] += (getTime("23:59") - parkingLot[carNumber])
+    parkRecord = defaultdict(int)
+    parkLot = dict()
 
-  for carNumber in parkRecord:
-    fee = calcFee(parkRecord[carNumber], baseTime, baseFee, unitTime, unitFee)
-    answer.append([carNumber, fee])
-  answer.sort()
-  answer = [x[1] for x in answer]
-  return answer
+    for record in records:
+        time, carNum, type = record.split(" ")
+        time = getTime(time)
+        if type == "IN":
+            parkLot[carNum] = time
+        else:
+            parkRecord[carNum] += time - parkLot[carNum]
+            del parkLot[carNum]
+
+    for carNum in parkLot:
+        parkRecord[carNum] += getTime("23:59") - parkLot[carNum]
+
+    for carNum in parkRecord:
+        parkFee = calcFee(parkRecord[carNum], baseTime, baseFee, unitTime, unitFee)
+        answer.append([carNum, parkFee])
+    answer.sort()
+    answer = [x[1] for x in answer]
+    return answer
+
+
+# 문제풀이 : https://sooleeandtomas.tistory.com/97
