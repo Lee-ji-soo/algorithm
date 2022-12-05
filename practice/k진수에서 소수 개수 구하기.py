@@ -30,3 +30,4 @@ def solution(n, k):
 
 
 print(solution(110011, 10))
+# 문제 풀이 : https://sooleeandtomas.tistory.com/98
