@@ -3,24 +3,20 @@
 using namespace std;
 
 int main() {
-    int a[4];
-    int b[4];
-    int result[4];
+    int a[6];
+    int b[6] = {0};
     
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 6; i++) {
         cin >> a[i];
     }
-    for (int i = 0; i < 4; i++) {
-        cin >> b[i];
+    
+    b[0] = a[0];
+    for(int i = 1; i < 6;i++){
+        b[i] = a[i] + b[i - 1];
     }
     
-    for (int i = 0; i<4; i++){
-        result[i] = a[i] + b[3-i];
+    for (int i =0; i<6; i++){
+        cout << b[i] << " ";
     }
-    
-    for (int i = 0; i < 4; i++) {
-        cout << result[i] << ' ';
-    }
-
     return 0;
 }

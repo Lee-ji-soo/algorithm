@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    string str;
+    char str[10] = {0};
     cin >> str;
     int index;
     cin >> index;
@@ -20,8 +20,6 @@ int main() {
     }
     
         
-    for (int i = 0; i < len -1; i++){
-        cout<< str[i];
-    }
+    cout << str; 
     return 0;
 }
