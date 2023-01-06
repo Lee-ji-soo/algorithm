@@ -15,7 +15,7 @@ int main() {
             break;
         }
     }
-    char arr[len + 1] = {""};
+    char arr[len + 1];
     for (int i = 0; i < index; i++){
         arr[i] = str[i];
     }
