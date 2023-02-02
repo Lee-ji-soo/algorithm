@@ -2,8 +2,7 @@
 #include <cstring>
 using namespace std;
 
-int len = 0;
-int isSame(char trainName[9], char name[9]){
+int isSame(char trainName[9], char name[9], int len){
     for(int i=0; i<len; i++){
         if(trainName[i] != name[i]){
             return 0;
@@ -23,21 +22,20 @@ int main() {
     cin >> name;
     cin >> win;
     
-    len = strlen(name);
-     
-    SEAT train[7] = {
-        {win: 15, name:"summer"},
-        {win: 33, name:"cloe"},
-        {win: 24, name:"summer"},
-        {win: 28, name:"niki"},
-        {win: 32, name:"jenny"},
-        {win: 20, name:"summer"},
-        {win: 40, name:"coco"},
+    struct SEAT train[7] = {
+        {15, "summer"},
+        {33, "cloe"},
+        {24, "summer"},
+        {28, "niki"},
+        {32, "jenny"},
+        {20, "summer"},
+        {40, "coco"},
     };
-    
+     
     for(int i=0; i<6;i++){
+        int len = strlen(train[i].name);
         if(win != train[i].win) continue;
-        if(isSame(train[i].name, name)){
+        if(isSame(train[i].name, name, len)){
             cout << i;
         }
     }
