@@ -2,15 +2,15 @@
 
 using namespace std;
 
-int count = 0;
+int c = 0;
 void abc(int x)
 {
-  if (count == 3)
+  if (c == 3)
   {
     cout << x << " ";
     return;
   }
-  count++;
+  c++;
   abc(x + 2);
   cout << x << " ";
 }
