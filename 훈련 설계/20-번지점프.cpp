@@ -2,16 +2,19 @@
 
 using namespace std;
 
-void countDown(int x){
+void countDown(int x)
+{
     cout << x << " ";
-    if(x == 0) {
+    if (x == 0)
+    {
         return;
     }
 
-    countDown(x-1);
+    countDown(x - 1);
     cout << x << " ";
 }
-int main() {
+int main()
+{
     int n;
     cin >> n;
     countDown(n);
