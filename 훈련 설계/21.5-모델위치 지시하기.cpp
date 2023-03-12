@@ -82,29 +82,24 @@ int main()
     }
   }
 
+  char result[5][3] = {0};
+  result[Ay][Ax] = 'A';
+  result[Ty][Tx] = 'T';
+  result[Ky][Kx] = 'K';
+
   for (int y = 0; y < 5; y++)
   {
     for (int x = 0; x < 3; x++)
     {
-      if (y == Ay && x == Ax)
+      if (result[y][x] == 0)
       {
-        cout << 'A';
-      }
-      else if (y == Ty && x == Tx)
-      {
-        cout << 'T';
-      }
-      else if (y == Ky && x == Kx)
-      {
-        cout << 'K';
+        cout << '_';
       }
       else
       {
-        cout << '_';
+        cout << result[y][x];
       }
     }
     cout << endl;
   }
 }
-
-// 문제 풀이: https://sooleeandtomas.tistory.com/107
