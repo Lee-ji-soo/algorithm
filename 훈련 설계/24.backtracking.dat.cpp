@@ -10,14 +10,14 @@ int arr[3][3] = {
 int path[4] = {0};
 int used[3][3] = {0};
 int dat[3000] = {0};
-int count = 0;
+int cnt = 0;
 
 void abc(int lev, int multi)
 {
   if (lev == 4)
   {
     if (dat[multi + 1000] == 0)
-      count++;
+      cnt++;
     dat[multi + 1000]++;
     return;
   }
@@ -39,6 +39,6 @@ void abc(int lev, int multi)
 int main()
 {
   abc(0, 1);
-  cout << count;
+  cout << cnt;
   return 0;
 }
