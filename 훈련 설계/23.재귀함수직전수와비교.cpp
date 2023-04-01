@@ -3,6 +3,7 @@
 using namespace std;
 
 int path[3] = {0};
+
 void abc(int lev)
 {
   // if(lev >= 2 && path[lev - 1] == path[lev -2]) return;

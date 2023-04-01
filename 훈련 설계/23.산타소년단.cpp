@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-char name[6] = {"BTSKR"};
+char name[6] = {"EWABC"};
 int used[5] = {0};
 char path[4] = {""};
 int cnt = 0;
