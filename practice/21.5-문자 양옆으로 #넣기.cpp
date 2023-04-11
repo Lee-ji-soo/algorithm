@@ -2,8 +2,9 @@
 #include <cstring>
 using namespace std;
 
-int main() {
-    char a[10] = { "" };
+int main()
+{
+    char a[10] = {""};
     char b, c;
     cin >> a;
     cin >> b >> c;
@@ -13,16 +14,17 @@ int main() {
 
     int bIndex;
     int cIndex;
-    for (int i = 0; i < len; i++) {
-        if (a[i] == b) {
+    for (int i = 0; i < len; i++)
+    {
+        if (a[i] == b)
+        {
             bIndex = i;
         }
-        if (a[i] == c) {
+        if (a[i] == c)
+        {
             cIndex = i;
         }
     }
-
-
 
     int bl;
     int br;
@@ -34,18 +36,21 @@ int main() {
     cl = cIndex - 1;
     cr = cIndex + 1;
 
-    //1. find Index b, c from a
-    //2. for strlen [0, b-1], [0,b+1] [0, a-1], [0,a+1];
-    //3. if b-1, b+1, a-1, a+1 out of range continue;
+    // 1. find Index b, c from a
+    // 2. for strlen [0, b-1], [0,b+1] [0, a-1], [0,a+1];
+    // 3. if b-1, b+1, a-1, a+1 out of range continue;
 
-    for (int i = 0; i < len; i++) {
-        if (i == bl || i == br || i == cl || i == cr) {
+    for (int i = 0; i < len; i++)
+    {
+        if (i == bl || i == br || i == cl || i == cr)
+        {
             cout << "#";
-        }else{
+        }
+        else
+        {
             cout << a[i];
         }
     }
-
 
     return 0;
 }
