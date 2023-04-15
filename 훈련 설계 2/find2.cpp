@@ -68,3 +68,33 @@ int main()
 
     return 0;
 }
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string input = "ABC[BTS]KK[KFC]GGR[TT]";
+
+    int aindex = -1;
+    int bindex = -1;
+    while (1)
+    {
+        aindex = input.find("[", aindex + 1);
+        bindex = input.find("]", bindex + 1);
+        if (aindex == -1 && bindex == -1)
+        {
+            break;
+        }
+        cout << input.substr(aindex + 1, bindex - aindex - 1) << endl;
+    }
+}
