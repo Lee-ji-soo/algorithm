@@ -64,7 +64,7 @@ int main()
 
     cout << input.substr(0, a) << endl;
     cout << input.substr(a + 1, b - a - 1) << endl;
-    cout << input.substr(b + 1, input.length()) << endl;
+    cout << input.substr(b + 1, input.length() - b - 1) << endl;
 
     return 0;
 }
