@@ -203,3 +203,31 @@ int main()
     //  a.p = &b;
     //  b.p = NULL;
 }
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    struct A
+    {
+        int a;
+        A *p;
+    };
+
+    A c = {3, NULL};
+    A b = {9, &c};
+    A a = {4, &a};
+
+    cout << b.p->a;
+}
