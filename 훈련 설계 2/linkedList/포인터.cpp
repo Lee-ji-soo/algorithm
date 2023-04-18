@@ -142,3 +142,64 @@ int main()
     KFC kfc = {5, &ch};
     cout << *kfc.p;
 }
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    struct KFC
+    {
+        int a;
+        char *p;
+        int *q;
+    };
+
+    char ch = 'A';
+    int t = 3;
+
+    KFC kfc = {15, &ch, &t};
+
+    cout << *kfc.p;
+}
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+int main()
+{
+    struct KFC
+    {
+        int a;
+        KFC *p;
+    };
+
+    KFC b = {7, NULL};
+    KFC a = {3, &b};
+
+    // KFC a,b;
+    //  a.a = 3;
+    //  b.a = 7;
+    //  a.p = &b;
+    //  b.p = NULL;
+}
