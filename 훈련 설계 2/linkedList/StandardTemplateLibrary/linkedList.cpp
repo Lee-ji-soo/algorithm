@@ -9,39 +9,21 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <list>
 using namespace std;
 
-struct Node
-{
-    int x;
-    Node *p;
-};
-
-Node *head;
-Node *last;
-
-void addNode(int n)
-{
-    if (head == NULL)
-    {
-        head = new Node();
-        head->x = n;
-        head->p = NULL;
-        last = head;
-    }
-    else
-    {
-        last->p = new Node();
-        last = last->p;
-        last->x = n;
-    }
-}
+list<int> v;
 
 int main()
 {
-    addNode(1);
-    addNode(2);
-    addNode(3);
+    v.push_back(1);
+    v.push_back(2);
+    v.push_back(3);
+    v.push_back(4);
 
+    for (auto i = v.begin(); i != v.end(); ++i)
+    {
+        cout << *i;
+    }
     return 0;
 }
