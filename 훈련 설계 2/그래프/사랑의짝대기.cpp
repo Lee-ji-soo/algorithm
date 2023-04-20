@@ -83,3 +83,24 @@ int main()
     cout << pe[maxIndex];
     return 0;
 }
+
+int main()
+{
+    string a = "ABTR";
+    int arr[4][4] = {
+        0, 1, 1, 0,
+        0, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 1, 1, 0};
+
+    int n = 3;
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (arr[n][i] == 1)
+        {
+            cout << a[i];
+        }
+    }
+    return 0;
+}
