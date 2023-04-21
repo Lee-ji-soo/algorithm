@@ -46,7 +46,7 @@ int main()
     alist[3] = {2, 4};
     alist[4] = {1, 3};
 
-    int num = 2;
+    int num = 0;
 
     for (int i = 0; i < alist[num].size(); i++)
     {
