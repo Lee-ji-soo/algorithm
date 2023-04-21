@@ -7,40 +7,37 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
 #include <iostream>
-#include <string>
-#include <cstring>
 #include <vector>
+#include <string>
 using namespace std;
 
-char path[6] = {0};
+int used[4] = {0};
+vector<vector<int>> arr(4);
 
-vector<vector<int>> arr(6);
+string country[4] = {"한", "미", "일", "프"};
 
-void run(int num, int lev)
+void run(int now)
 {
-    // cout << (char)('A' + num);
-    if (lev == 2)
+    cout << country[now];
+    for (int i = 0; i < arr.size(); i++)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            cout << (char)(path[i]);
-        }
-        cout << endl;
-    }
-    for (int i = 0; i < arr[num].size(); i++)
-    {
-        path[lev + 1] = arr[num][i] + 'A';
-        run(arr[num][i], lev + 1);
-        path[lev + 1] = 0;
+        int next = arr[now][i];
+        if (used[next] == 1)
+            continue;
+        used[next] = 1;
+        run(arr[now][i]);
     }
 }
 
 int main()
 {
-    arr[0] = {1, 2};
-    arr[1] = {3};
-    arr[2] = {4, 5};
-    path[0] = 0 + 'A';
-    run(0, 0);
+    arr[0] = {1, 3};
+    arr[1] = {2};
+    arr[2] = {0, 3};
+    arr[3] = {2};
+
+    used[0] = 1;
+    run(0);
+
     return 0;
 }
