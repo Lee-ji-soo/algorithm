@@ -68,7 +68,7 @@ int main()
 
     int max = -99;
     int min = 99;
-    for (int i = 0; i < prices.size(); i++)
+    for (int i = 0; i < `prices.size(); i++)
     {
         if (max < prices[i])
         {
