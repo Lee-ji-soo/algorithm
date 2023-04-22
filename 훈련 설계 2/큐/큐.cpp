@@ -60,3 +60,42 @@ int main()
         }
     }
 }
+
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
+vector<vector<int>> vect(7);
+queue<int> q;
+
+int main()
+{
+    string str = "ACBQTPR";
+
+    vect[0] = {1, 2, 3};
+    vect[2] = {4};
+    vect[3] = {5, 6};
+
+    q.push(0);
+
+    while (!q.empty())
+    {
+        int now = q.front();
+        cout << str[now] << " ";
+        q.pop();
+
+        for (int i = 0; i < vect[now].size(); i++)
+        {
+            q.push(vect[now][i]);
+        }
+    }
+}
