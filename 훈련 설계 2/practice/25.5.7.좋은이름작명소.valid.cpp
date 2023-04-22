@@ -41,15 +41,15 @@ int main()
     int n = 0;
     cin >> n;
 
-    string arr[n] = {""};
+    string alist[n] = {""};
     for (int i = 0; i < n; i++)
     {
-        cin >> arr[i];
+        cin >> alist[i];
     }
 
     for (int i = 0; i < n; i++)
     {
-        int flag = isGood(arr[i]);
+        int flag = isGood(alist[i]);
         if (flag == 1)
         {
             cout << "good";
