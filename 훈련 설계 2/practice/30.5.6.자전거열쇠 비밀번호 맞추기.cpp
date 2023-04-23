@@ -22,14 +22,17 @@ int flag = 0;
 void run(string str, int lev)
 {
     string s = str;
-    if (path == s)
-    {
-        flag = 1;
-    }
+    if (flag == 1)
+        return;
 
-    if (lev == 4 || flag == 1)
+    if (lev == 4)
     {
         cnt++;
+        if (path == s)
+        {
+            flag = 1;
+            return;
+        }
         return;
     }
 
