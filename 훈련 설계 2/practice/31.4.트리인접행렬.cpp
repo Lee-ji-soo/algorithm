@@ -10,30 +10,36 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <string>
 using namespace std;
 
-string str= "ABCDEF";
+string str = "ABCDEF";
 int arr[6][6] = {
-    0,1,1,0,0,0,
-    0,0,0,1,1,1
-};
+    0, 1, 1, 0, 0, 0,
+    0, 0, 0, 1, 1, 1};
 char path[7] = {""};
-void run(int lev){
-    for(int i=0;i<7;i++){
-        if(path[i] == 1){
-            cout << str[i];
-        }
+
+void run(int lev)
+{
+    if (lev == 6)
+    {
+        return;
     }
-    cout << endl;
-    for(int i=0; i<6; i++){
-        if(arr[lev][i] == 0) continue;
-        path[i] = 1;
+    for (int i = 0; i < 6; i++)
+    {
+        if (arr[lev][i] == 0)
+            continue;
+        path[lev + 1] = str[i];
         run(i);
-        path[i] = 0;
+        path[lev + 1] = 0;
+        cout << endl;
+    }
+    for (int j = 0; j < 6; j++)
+    {
+        cout << path[j];
     }
 }
 
 int main()
 {
-    path[0] = 1;
+    path[0] = 'A';
     run(0);
     return 0;
 }
