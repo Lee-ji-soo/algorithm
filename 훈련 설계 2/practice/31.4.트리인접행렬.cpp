@@ -1,44 +1,46 @@
-/******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cstring>
 using namespace std;
 
 string str = "ABCDEF";
-int arr[6][6] = {
-    0, 1, 1, 0, 0, 0,
-    0, 0, 0, 1, 1, 1};
-char path[7] = {""};
-
-void run(int lev)
+int arr[6][6] = {0};
+char path[6] = {0};
+void run(int cur)
 {
-    if (lev == 6)
-    {
-        return;
-    }
+    int hasChild = 0;
     for (int i = 0; i < 6; i++)
     {
-        if (arr[lev][i] == 0)
+        if (arr[cur][i] == 0)
             continue;
-        path[lev + 1] = str[i];
+        path[cur + 1] = str[i];
+        hasChild = 1;
         run(i);
-        path[lev + 1] = 0;
-        cout << endl;
+        path[cur + 1] = 0;
     }
-    for (int j = 0; j < 6; j++)
+
+    if (!hasChild)
     {
-        cout << path[j];
+        int len = strlen(path);
+        for (int j = 0; j < len; j++)
+        {
+            cout << path[j];
+        }
+        cout << endl;
+        return;
     }
 }
 
 int main()
 {
+    for (int y = 0; y < 6; y++)
+    {
+        for (int x = 0; x < 6; x++)
+        {
+            cin >> arr[y][x];
+        }
+    }
     path[0] = 'A';
     run(0);
     return 0;
