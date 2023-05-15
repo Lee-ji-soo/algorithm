@@ -52,3 +52,5 @@ int main()
     solution({-2, 3, 0, 2, -5});
     return 0;
 }
+
+// 문제풀이: https://sooleeandtomas.tistory.com/117
