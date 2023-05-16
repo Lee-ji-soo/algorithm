@@ -34,6 +34,6 @@ int main()
     Node3 v; // 16byte
 
     // 메모리 영역 중 스택
-    // 사이즈 고정된다. max: 2mb
+    // 사이즈 고정된다. max: 2mb // 100,000 byte초과 시 에러
     return 0;
 }
