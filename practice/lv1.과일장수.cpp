@@ -1,3 +1,4 @@
+// 문제 풀이 1.
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -26,6 +27,43 @@ int solution(int k, int m, vector<int> score)
 int main()
 {
     solution(4, 3, {4, 1, 2, 2, 4, 4, 4, 4, 1, 2, 4, 2});
+    return 0;
+}
+
+// 문제 풀이 2.
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
+int compare(int a, int b)
+{
+    return a > b;
+}
+int solution(int k, int m, vector<int> score)
+{
+    sort(score.begin(), score.end(), compare);
+
+    int sum = 0;
+    int temp = m - 1;
+    while (true)
+    {
+        if (temp > score.size())
+        {
+            break;
+        }
+        int min = score[temp];
+        sum += (min * m);
+        temp += m;
+    }
+    cout << sum;
+    return sum;
+}
+
+int main()
+{
+    solution(3, 4, {1, 2, 3, 1, 2, 3, 1});
     return 0;
 }
 
