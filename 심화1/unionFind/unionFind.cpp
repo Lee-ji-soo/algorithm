@@ -3,23 +3,24 @@
 #include <algorithm>
 #include <iostream>
 using namespace std;
-int myBoss[10] = {0};
 
-int find(int n)
+int myBoss[10];
+
+int findBoss(int n)
 {
     if (myBoss[n] == 0)
     {
         return n;
     }
 
-    int ret = find(myBoss[n]);
-    return ret;
+    int boss = findBoss(myBoss[n]);
+    myBoss[n] = boss; // 나의 보스를 바꾸기. 경로 압축 !
+    return boss;
 }
-
 void setBoss(int t1, int t2)
 {
-    int t1Boss = find(t1);
-    int t2Boss = find(t2);
+    int t1Boss = findBoss(t1);
+    int t2Boss = findBoss(t2);
 
     if (t1Boss == t2Boss)
         return;
@@ -28,20 +29,10 @@ void setBoss(int t1, int t2)
 
 int main()
 {
-    setBoss(6, 7);
-    setBoss(5, 6);
     setBoss(1, 2);
+    setBoss(2, 3);
+    setBoss(3, 4);
 
-    if (find(2) == find(6))
-    {
-        cout << "같은 그룹";
-    }
-    else
-    {
-        cout << "다른 그룹";
-    }
-
-    int ret = find(7);
-
+    int ret = findBoss(3);
     return 0;
 }
