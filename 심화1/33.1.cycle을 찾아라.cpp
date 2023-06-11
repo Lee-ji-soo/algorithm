@@ -8,7 +8,7 @@ int myBoss[200] = {0};
 
 int findBoss(int n)
 {
-    if (myBoss[n] == 0)
+    if (myBoss[n] != n && myBoss[n] == 0)
     {
         return n;
     }

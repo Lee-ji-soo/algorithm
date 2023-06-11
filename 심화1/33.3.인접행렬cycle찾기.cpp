@@ -1,7 +1,19 @@
+#include <string>
+#include <vector>
+#include <algorithm>
 #include <iostream>
 using namespace std;
 
-int* myBoss;
+int myBoss[200] = {0};
+
+int n = 4;
+
+int map[4][4] = {
+    {0, 1, 0, 0},
+    {1, 0, 1, 0},
+    {0, 1, 0, 1},
+    {0, 0, 1, 0},
+};
 
 int findBoss(int n)
 {
@@ -27,39 +39,24 @@ void setBoss(int a, int b)
 
 int main()
 {
-    int n = 4;
-    myBoss = new int[n + 1];
-    fill_n(myBoss, n + 1, 0);
-
-    int map[4][4] = {
-        {0, 1, 0, 0},
-        {1, 0, 1, 0},
-        {0, 1, 0, 1},
-        {0, 0, 1, 0},
-    };
-
     for (int y = 0; y < n; y++)
     {
-        for (int x = y + 1; x < n; x++)  // x = y + 1부터 시작하여 중복 방지
+        for (int x = 0; x < n; x++)
         {
             if (map[y][x] == 0)
                 continue;
-
             int a = findBoss(y);
             int b = findBoss(x);
 
             if (a == b)
             {
-                cout << "Cycle detected" << endl;
-                delete[] myBoss;
+                cout << "cycle 발견";
                 return 0;
             }
 
             setBoss(a, b);
         }
     }
-
-    cout << "No cycle found" << endl;
-    delete[] myBoss;
+    cout << "미발견";
     return 0;
 }
