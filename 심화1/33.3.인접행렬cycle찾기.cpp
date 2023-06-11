@@ -5,16 +5,8 @@
 using namespace std;
 
 int myBoss[200] = {0};
-
-int n = 4;
-
-int map[4][4] = {
-    {0, 1, 0, 0},
-    {1, 0, 1, 0},
-    {0, 1, 0, 1},
-    {0, 0, 1, 0},
-};
-
+int map[15][15] = {0};
+int n = 0;
 int findBoss(int n)
 {
     if (myBoss[n] == 0)
@@ -39,14 +31,25 @@ void setBoss(int a, int b)
 
 int main()
 {
+
+    cin >> n;
+
     for (int y = 0; y < n; y++)
     {
         for (int x = 0; x < n; x++)
         {
+            cin >> map[y][x];
+        }
+    }
+
+    for (int y = 0; y < n; y++)
+    {
+        for (int x = y; x < n; x++)
+        {
             if (map[y][x] == 0)
                 continue;
-            int a = findBoss(y);
-            int b = findBoss(x);
+            int a = findBoss(y + 65);
+            int b = findBoss(x + 65);
 
             if (a == b)
             {
