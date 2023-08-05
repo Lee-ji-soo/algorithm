@@ -34,7 +34,7 @@ int main()
     int cnt = 0;
     int n = 7;
 
-    int gg[n][2] = {
+    int gg[7][2] = {
         1,
         1,
         1,
