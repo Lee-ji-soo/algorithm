@@ -24,10 +24,8 @@ priority_queue<Node, vector<Node>> q;
 
 bool operator<(Node v, Node t){
     if(t.a > v.a) return 1;
-    if(t.a >= v.a) {
-        return t.b < v.b;  
-    }
-    return 0;
+    if(t.a > v.a) return 0;
+    return t.b < v.b;  
 }
 
 int main()
