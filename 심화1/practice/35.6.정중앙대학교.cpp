@@ -44,14 +44,12 @@ int main()
             lower.push(score2);
         }
 
-        // 중앙값 갱신
-        while (lower.size() > upper.size())
+        if (lower.size() > upper.size())
         {
             upper.push(lower.top());
             lower.pop();
         }
-
-        while (upper.size() > lower.size() + 1)
+        else if (lower.size() < upper.size())
         {
             lower.push(upper.top());
             upper.pop();
