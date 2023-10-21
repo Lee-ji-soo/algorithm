@@ -2,7 +2,7 @@
 #include <queue>
 using namespace std;
 
-// dijkstra
+// dijkstra 가중치값이 있는 문제
 int MAXI = 28e3;
 
 struct Node

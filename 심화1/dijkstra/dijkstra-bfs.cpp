@@ -8,19 +8,13 @@ struct Node
     int price;
 };
 
-bool operator<(Node v, Node t)
-{
-    return t.price < v.price;
-}
-
-// dijkstra 가중치값이 없는데, dijkstra로 구현해봄
+// bfs
 int main()
 {
-    priority_queue<Node> q;
-
+    queue<Node> q;
     vector<vector<Node>> alist(6);
 
-    int result[6] = {0};
+    int used[6] = {0};
 
     alist[0] = {{1, 1}, {2, 1}, {3, 1}};
     alist[1] = {{2, 1}};
@@ -32,40 +26,33 @@ int main()
     int start, end;
     cin >> start >> end;
 
-    q.push(alist[start][0]);
-
-    int flag = 0;
+    q.push({start, 1});
+    used[start] = 1;
 
     while (!q.empty())
     {
-        Node now = q.top();
+        Node now = q.front();
         q.pop();
-        result[now.n] = 1;
-
-        if (now.n == end)
-        {
-            flag = 1;
-            break;
-        }
 
         for (int i = 0; i < alist[now.n].size(); i++)
         {
             Node next = alist[now.n][i];
-            result[next.n] = 1;
+
+            if (used[next.n] == 1)
+                continue;
+            used[next.n] = 1;
             q.push(next);
         }
     }
 
-    flag = result[end] == 1;
-
-    if (flag == 1)
+    if (used[end] == 1)
     {
         cout << "O";
     }
     else
     {
         cout << "X";
-    };
+    }
 
     return 0;
 }
