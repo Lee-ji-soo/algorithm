@@ -13,23 +13,19 @@ using namespace std;
 
 int map[15] = {
     0, 0, 5, 10, -30, 5, 4, -20, -30, -50, 40, 1, 5, 4, 20};
-
-struct Node
+int dp[15] = {0, 0, 5, 10, -30, 5, 4, -20, -30, -50, 40, 1, 5, 4, 20};
+int getMax(int a, int b, int c)
 {
-    int n, index;
-};
-Node getMax(Node a, Node b, Node c)
-{
-    if (a.n > b.n)
+    if (a > b)
     {
-        if (a.n > c.n)
+        if (a > c)
         {
             return a;
         }
     }
     else
     {
-        if (b.n > c.n)
+        if (b > c)
         {
             return b;
         }
@@ -42,22 +38,39 @@ Node getMax(Node a, Node b, Node c)
 }
 int main()
 {
-
-    int i = 14;
-    int sum = map[i];
-    while (i >= 0)
+    for (int i = 2; i < 15; i++)
     {
-        if (i / 2 < 0 || i - 1 < 0 || i - 2 < 0)
-            break;
-        int a = map[i - 1];
-        int b = map[i - 2];
-        int c = map[i / 2];
+        int a, b, c;
+        if (i - 1 >= 2)
+        {
+            a = dp[i - 1];
+        }
+        else
+        {
+            a = 0;
+        }
 
-        Node max = {0, 0};
-        max = getMax({a, i - 1}, {b, i - 2}, {c, i / 2});
-        sum += max.n;
-        i = max.index;
+        if (i - 2 >= 2)
+        {
+            b = dp[i - 2];
+        }
+        else
+        {
+            b = 0;
+        }
+
+        if (i / 2 >= 2 && i % 2 == 0)
+        {
+            c = dp[i / 2];
+        }
+        else
+        {
+            c = 0;
+        }
+
+        int max = getMax(a, b, c);
+        dp[i] += max;
     }
-    cout << sum;
+    cout << dp[14];
     return 0;
 }
