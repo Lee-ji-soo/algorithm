@@ -11,36 +11,37 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <unordered_map>
 using namespace std;
 
+struct NodeN
+{
+    string name;
+    string nick;
+    int age;
+};
+
+struct Node
+{
+    string call;
+    int age;
+};
+
 int main()
 {
-    unordered_map<string, int> um;
+    unordered_map<string, Node> um;
+    NodeN map[3] = {
+        {"name", "BOB", 42},
+        {"nat", "net", 50},
+        {"BBQ", "KFC", 30},
+    };
 
-    string map[4] = {"ABC", "ABC", "ABC", "BTS"};
-
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
-        if (um.count(map[i]) == 0)
-        {
-            um[map[i]] = 1;
-        }
-        else
-        {
-            um[map[i]]++;
-        }
+        um[map[i].name] = {map[i].nick, map[i].age};
+        um[map[i].nick] = {map[i].name, map[i].age};
     }
 
-    int maxi = -2e5;
-    string maxiKey = "";
-    for (auto i = um.begin(); i != um.end(); ++i)
+    string in = "name";
+    if (um.count(in) != 0)
     {
-        string key = i->first;
-        int value = i->second;
-        if (maxi < value)
-        {
-            maxi = value;
-            maxiKey = key;
-        }
+        cout << um[in].call << ", " << um[in].age;
     }
-
-    cout << maxiKey;
 }
