@@ -14,45 +14,22 @@ Code, Compile, Run and Debug online from anywhere in world.
 
 using namespace std;
 
-struct Node
-{
-    string name;
-    int number;
-    int salary;
-};
-
-string hashFunction(string name, int number)
-{
-    string a = "";
-    a += name;
-    a += '_';
-    a += to_string(number);
-    return a;
-};
-
 int main()
 {
-    unordered_map<string, int> um;
-    Node map[6] = {
-        {"Toto", 15, 4500},
-        {"Son", 30, 6000},
-        {"Tom", 15, 10000},
-        {"Jason", 42, 15000},
-        {"Bob", 30, 50000},
-        {"Son", 60, 100},
-    };
+    unordered_multimap<string, int> um;
+    um.insert({"BBQ", 15000});
+    um.insert({"BBQ", 25000});
+    um.insert({"BBQ", 35000});
+    um.insert({"KFC", 15000});
+    um.insert({"MCd", 20000});
+    um.insert({"Dunkin", 17800});
 
-    for (int i = 0; i < 6; i++)
+    auto mi = um.equal_range("BBQ");
+    for (auto i = mi.first; i != mi.second; ++i)
     {
-        string hashCode = hashFunction(map[i].name, map[i].number);
-        um[hashCode] = map[i].salary;
-    };
-
-    string name;
-    int number;
-    cin >> name >> number;
-
-    string hashCode = hashFunction(name, number);
-    cout << um[hashCode];
+        cout << i->first << ", " << i->second << endl;
+    }
     return 0;
 }
+
+// 참고자료 cppreference
