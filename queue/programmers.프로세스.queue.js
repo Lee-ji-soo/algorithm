@@ -5,7 +5,7 @@ function solution(priorities, location) {
   while (entries.length) {
     let top = entries[0];
     entries = entries.slice(1, entries.length);
-    
+
     if (entries.some((entry) => entry[1] > top[1])) {
       entries = [...entries, top];
     } else {
