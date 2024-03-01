@@ -14,7 +14,10 @@ int segment[100];
 int makeSeg(int index, int s, int e)
 {
     if (s == e)
+    {
+        segment[index] = values[s];
         return values[s];
+    }
 
     int mid = (s + e) / 2;
     int a = makeSeg(index * 2, s, mid);
